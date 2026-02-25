@@ -1,0 +1,233 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SchemaService from "../../components/SchemaService.astro";
+
+const highlights = [
+  {
+    t: "Compraventas y promesas",
+    d: "Asesoramiento preventivo, coordinación ágil y control documental para operar con tranquilidad.",
+  },
+  {
+    t: "Estudio de títulos",
+    d: "Revisión registral y antecedentes para detectar riesgos antes de firmar.",
+  },
+  {
+    t: "Hipotecas y garantías",
+    d: "Instrumentación y coordinación técnica para operaciones con financiación o garantías reales.",
+  },
+  {
+    t: "Propiedad horizontal",
+    d: "Reglamentos, copropiedad y documentación asociada para operaciones en edificios y complejos.",
+  },
+];
+
+const steps = [
+  { t: "Diagnóstico", d: "Entendemos el caso, definimos objetivos y checklist de documentación." },
+  { t: "Verificación", d: "Estudio registral, control documental y prevención de contingencias." },
+  { t: "Firma y cierre", d: "Coordinación de partes, firma y seguimiento de inscripciones." },
+];
+
+const faq = [
+  {
+    q: "¿Puede un extranjero comprar propiedad en Uruguay?",
+    a: "Sí. Se coordina la documentación y el mecanismo más seguro para firmar (presencial o mediante poder, según el caso).",
+  },
+  {
+    q: "¿Cuánto demora una compraventa?",
+    a: "Depende de títulos, documentación y coordinación de partes. Se define un cronograma estimado al inicio para avanzar con claridad.",
+  },
+  {
+    q: "¿Qué costos intervienen?",
+    a: "Varía según el tipo de operación. Se informa un estimado claro antes de avanzar, para evitar sorpresas.",
+  },
+];
+---
+
+<BaseLayout
+  title="Escribana en Punta del Este | Operaciones inmobiliarias"
+  description="Compraventas, promesas, hipotecas, propiedad horizontal y estudio de títulos en Punta del Este y Maldonado. Atención directa, criterio preventivo y coordinación ágil."
+>
+  <SchemaService
+    name="Operaciones inmobiliarias en Punta del Este"
+    description="Servicio notarial boutique para compraventas, promesas, hipotecas, propiedad horizontal y estudio de títulos en Punta del Este y Maldonado."
+  />
+
+  <!-- HERO (Premium editorial) -->
+  <section class="relative overflow-hidden bg-[#0B1F3B] text-white border-b border-white/10">
+    <div class="pointer-events-none absolute inset-0">
+      <img
+        src="/images/hero-inmobiliario.jpg"
+        alt="Punta del Este, Uruguay"
+        width="1920"
+        height="1080"
+        loading="eager"
+        class="h-full w-full object-cover opacity-45"
+      />
+
+      <!-- Overlay editorial: más liviano (se ve mejor la imagen) -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0B1F3B]/55 via-[#0B1F3B]/55 to-[#0B1F3B]/85"></div>
+
+      <!-- Glow sutil premium -->
+      <div class="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-56 -left-56 h-[520px] w-[520px] rounded-full bg-white/5 blur-3xl"></div>
+    </div>
+
+    <div class="container relative py-16 md:py-20">
+      <p class="text-sm uppercase tracking-widest text-white/70">
+        Operaciones inmobiliarias · Punta del Este / Maldonado
+      </p>
+
+      <h1 class="mt-6 text-4xl md:text-6xl font-semibold leading-tight">
+        Seguridad jurídica en tu operación
+        <span class="block text-white/90">inmobiliaria.</span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-lg text-white/80">
+        Compraventas, promesas, hipotecas, propiedad horizontal y estudio de títulos con atención directa,
+        criterio preventivo y coordinación ágil.
+      </p>
+
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a
+          class="rounded-full bg-white text-[#0B1F3B] px-6 py-3 text-sm font-semibold no-underline hover:opacity-95"
+          href="/contacto"
+        >
+          Solicitar consulta
+        </a>
+        <a
+          class="rounded-full border border-white/25 px-6 py-3 text-sm no-underline hover:bg-white/10"
+          href="/preguntas-frecuentes"
+        >
+          Ver preguntas frecuentes
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-3 md:grid-cols-3">
+        {[
+          { t: "Atención directa", d: "Trato personal y seguimiento cercano." },
+          { t: "Criterio preventivo", d: "Detectamos riesgos antes de firmar." },
+          { t: "Agilidad operativa", d: "Coordinación eficiente de partes y tiempos." },
+        ].map((b) => (
+          <div class="rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur-sm">
+            <div class="font-semibold">{b.t}</div>
+            <div class="mt-1 text-sm text-white/75">{b.d}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: ESPECIALIZACIÓN -->
+  <section class="container py-12 md:py-14">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+        Servicios inmobiliarios
+      </h2>
+      <p class="mt-3 text-black/70">
+        En un mercado dinámico como Punta del Este, la diferencia está en el control documental, la previsión y la
+        coordinación impecable.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      {highlights.map((c) => (
+        <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-[#0B1F3B]">{c.t}</h3>
+          <p class="mt-2 text-black/70 leading-relaxed">{c.d}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 rounded-2xl border border-black/10 bg-black/5 p-8">
+      <h3 class="text-xl font-semibold text-[#0B1F3B]">¿Qué ganás con este enfoque boutique?</h3>
+      <ul class="mt-4 grid gap-2 text-black/80 md:grid-cols-2">
+        <li>• Comunicación clara, sin tecnicismos innecesarios</li>
+        <li>• Checklist de documentación y tiempos desde el inicio</li>
+        <li>• Prevención de contingencias antes de firmar</li>
+        <li>• Coordinación ágil con inmobiliarias, bancos y partes</li>
+      </ul>
+      <div class="mt-6">
+        <a
+          class="rounded-full bg-[#0B1F3B] px-6 py-3 text-white text-sm font-semibold no-underline hover:opacity-90"
+          href="/contacto"
+        >
+          Coordinar consulta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: PROCESO -->
+  <section class="bg-white border-y border-black/10">
+    <div class="container py-12 md:py-14">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+          Cómo trabajamos
+        </h2>
+        <p class="mt-3 text-black/70">
+          Un proceso simple, profesional y transparente para que tomes decisiones con seguridad.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        {steps.map((s, idx) => (
+          <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+            <div class="text-xs font-semibold text-black/50">PASO {idx + 1}</div>
+            <h3 class="mt-2 text-lg font-semibold text-[#0B1F3B]">{s.t}</h3>
+            <p class="mt-2 text-black/70">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: FAQ MINI -->
+  <section class="container py-12 md:py-14">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+          Preguntas frecuentes
+        </h2>
+        <p class="mt-3 text-black/70">
+          Respuestas breves para orientarte. Para casos específicos, coordinamos una consulta.
+        </p>
+      </div>
+      <a class="text-sm font-semibold text-[#0B1F3B] no-underline hover:underline" href="/preguntas-frecuentes">
+        Ver todas →
+      </a>
+    </div>
+
+    <div class="mt-8 grid gap-4">
+      {faq.map((f) => (
+        <details class="group rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+          <summary class="cursor-pointer list-none font-semibold text-[#0B1F3B] flex items-start justify-between gap-4">
+            <span>{f.q}</span>
+            <span class="text-black/40 group-open:rotate-45 transition-transform select-none">+</span>
+          </summary>
+          <div class="mt-3 text-black/75 leading-relaxed">{f.a}</div>
+        </details>
+      ))}
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-[#0B1F3B] text-white p-8 border border-white/10">
+      <h3 class="text-xl font-semibold">¿Listo para avanzar con seguridad?</h3>
+      <p class="mt-2 text-white/80 max-w-2xl">
+        Coordinamos una consulta breve para entender tu operación, revisar lo esencial y definir próximos pasos.
+      </p>
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a
+          class="rounded-full bg-white text-[#0B1F3B] px-6 py-3 text-sm font-semibold no-underline hover:opacity-95"
+          href="/contacto"
+        >
+          Solicitar consulta
+        </a>
+        <a
+          class="rounded-full border border-white/25 px-6 py-3 text-sm no-underline hover:bg-white/10"
+          href="/servicios/internacional"
+        >
+          Soy cliente internacional
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

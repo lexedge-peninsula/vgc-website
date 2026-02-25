@@ -1,0 +1,231 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SchemaService from "../../components/SchemaService.astro";
+
+const highlights = [
+  {
+    t: "Constitución de sociedades",
+    d: "Estructuras claras y prolijas para operar e invertir con seguridad en Uruguay.",
+  },
+  {
+    t: "Reformas y actualizaciones estatutarias",
+    d: "Modificaciones, adecuaciones y formalizaciones para mantener la estructura al día.",
+  },
+  {
+    t: "Actas, protocolizaciones y certificaciones",
+    d: "Instrumentación notarial precisa para respaldar decisiones y documentación clave.",
+  },
+  {
+    t: "Poderes y representación",
+    d: "Poderes generales y especiales para operar con terceros, bancos y organismos.",
+  },
+];
+
+const steps = [
+  { t: "Diagnóstico", d: "Entendemos el objetivo, la estructura y el contexto de operación." },
+  { t: "Diseño", d: "Definimos el mejor formato: simple, eficiente y alineado al propósito." },
+  { t: "Instrumentación", d: "Redacción, firma y formalización, con seguimiento y coordinación." },
+];
+
+const faq = [
+  {
+    q: "¿Conviene constituir sociedad para comprar o administrar inmuebles?",
+    a: "En muchos casos sí, pero depende del objetivo patrimonial, fiscal y sucesorio. Evaluamos el caso y recomendamos la estructura más conveniente.",
+  },
+  {
+    q: "¿Qué tiempos maneja la constitución o modificación de una sociedad?",
+    a: "Varía según el tipo de estructura y documentación disponible. Se define un cronograma estimado al inicio para avanzar con claridad.",
+  },
+  {
+    q: "¿Pueden operar socios o directores desde el exterior?",
+    a: "En muchos casos sí, mediante poderes y coordinaciones específicas. Se propone el mecanismo más seguro y práctico según el caso.",
+  },
+];
+---
+
+<BaseLayout
+  title="Estructuración corporativa | Escribana en Punta del Este"
+  description="Constitución de sociedades, reformas, actas, poderes y protocolizaciones para empresas e inversores en Punta del Este y Maldonado. Atención directa y criterio preventivo."
+>
+  <SchemaService
+    name="Estructuración corporativa en Punta del Este"
+    description="Constitución de sociedades, reformas estatutarias, actas, poderes y protocolizaciones con atención ágil, claridad y criterio preventivo en Punta del Este y Maldonado."
+  />
+
+  <!-- HERO (Premium editorial) -->
+  <section class="relative overflow-hidden bg-[#0B1F3B] text-white border-b border-white/10">
+    <div class="pointer-events-none absolute inset-0">
+      <img
+        src="/images/hero-corporativo.jpg"
+        alt="Estructuración corporativa y documentación societaria"
+        width="1920"
+        height="1080"
+        loading="eager"
+        class="h-full w-full object-cover opacity-45"
+      />
+
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0B1F3B]/55 via-[#0B1F3B]/55 to-[#0B1F3B]/85"></div>
+
+      <div class="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-56 -left-56 h-[520px] w-[520px] rounded-full bg-white/5 blur-3xl"></div>
+    </div>
+
+    <div class="container relative py-16 md:py-20">
+      <p class="text-sm uppercase tracking-widest text-white/70">
+        Servicios corporativos · Punta del Este / Maldonado
+      </p>
+
+      <h1 class="mt-6 text-4xl md:text-6xl font-semibold leading-tight">
+        Estructuración corporativa
+        <span class="block text-white/90">clara y segura.</span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-lg text-white/80">
+        Sociedades, reformas, actas, poderes y protocolizaciones con enfoque boutique:
+        atención directa, criterio preventivo y ejecución ágil.
+      </p>
+
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a
+          class="rounded-full bg-white text-[#0B1F3B] px-6 py-3 text-sm font-semibold no-underline hover:opacity-95"
+          href="/contacto"
+        >
+          Solicitar consulta
+        </a>
+        <a
+          class="rounded-full border border-white/25 px-6 py-3 text-sm no-underline hover:bg-white/10"
+          href="/servicios/internacional"
+        >
+          Soy cliente internacional
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-3 md:grid-cols-3">
+        {[
+          { t: "Orden y prolijidad", d: "Documentación clara para operar sin fricciones." },
+          { t: "Criterio preventivo", d: "Reducimos riesgos legales y operativos." },
+          { t: "Agilidad", d: "Coordinación eficiente con socios, bancos y terceros." },
+        ].map((b) => (
+          <div class="rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur-sm">
+            <div class="font-semibold">{b.t}</div>
+            <div class="mt-1 text-sm text-white/75">{b.d}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: ESPECIALIZACIÓN -->
+  <section class="container py-12 md:py-14">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+        Servicios corporativos
+      </h2>
+      <p class="mt-3 text-black/70">
+        Un servicio corporativo boutique prioriza claridad, control y ejecución eficiente.
+        Ideal para empresarios, inversores y estructuras patrimoniales.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      {highlights.map((c) => (
+        <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-[#0B1F3B]">{c.t}</h3>
+          <p class="mt-2 text-black/70 leading-relaxed">{c.d}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 rounded-2xl border border-black/10 bg-black/5 p-8">
+      <h3 class="text-xl font-semibold text-[#0B1F3B]">¿Qué ganás con este enfoque?</h3>
+      <ul class="mt-4 grid gap-2 text-black/80 md:grid-cols-2">
+        <li>• Estructuras simples y eficientes (sin complejidad innecesaria)</li>
+        <li>• Documentación clara y ordenada para operar con terceros</li>
+        <li>• Coordinación ágil para firmas y decisiones societarias</li>
+        <li>• Atención directa y seguimiento cercano</li>
+      </ul>
+      <div class="mt-6">
+        <a
+          class="rounded-full bg-[#0B1F3B] px-6 py-3 text-white text-sm font-semibold no-underline hover:opacity-90"
+          href="/contacto"
+        >
+          Coordinar consulta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: PROCESO -->
+  <section class="bg-white border-y border-black/10">
+    <div class="container py-12 md:py-14">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+          Cómo trabajamos
+        </h2>
+        <p class="mt-3 text-black/70">
+          Un proceso simple y profesional para que tu estructura opere con tranquilidad.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        {steps.map((s, idx) => (
+          <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+            <div class="text-xs font-semibold text-black/50">PASO {idx + 1}</div>
+            <h3 class="mt-2 text-lg font-semibold text-[#0B1F3B]">{s.t}</h3>
+            <p class="mt-2 text-black/70">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: FAQ MINI -->
+  <section class="container py-12 md:py-14">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+          Preguntas frecuentes
+        </h2>
+        <p class="mt-3 text-black/70">
+          Respuestas breves para orientarte. Para casos específicos, coordinamos una consulta.
+        </p>
+      </div>
+      <a class="text-sm font-semibold text-[#0B1F3B] no-underline hover:underline" href="/preguntas-frecuentes">
+        Ver todas →
+      </a>
+    </div>
+
+    <div class="mt-8 grid gap-4">
+      {faq.map((f) => (
+        <details class="group rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+          <summary class="cursor-pointer list-none font-semibold text-[#0B1F3B] flex items-start justify-between gap-4">
+            <span>{f.q}</span>
+            <span class="text-black/40 group-open:rotate-45 transition-transform select-none">+</span>
+          </summary>
+          <div class="mt-3 text-black/75 leading-relaxed">{f.a}</div>
+        </details>
+      ))}
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-[#0B1F3B] text-white p-8 border border-white/10">
+      <h3 class="text-xl font-semibold">¿Querés ordenar y formalizar tu estructura?</h3>
+      <p class="mt-2 text-white/80 max-w-2xl">
+        Coordinamos una consulta breve para entender tu objetivo, revisar lo esencial y definir próximos pasos.
+      </p>
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a
+          class="rounded-full bg-white text-[#0B1F3B] px-6 py-3 text-sm font-semibold no-underline hover:opacity-95"
+          href="/contacto"
+        >
+          Solicitar consulta
+        </a>
+        <a
+          class="rounded-full border border-white/25 px-6 py-3 text-sm no-underline hover:bg-white/10"
+          href="/servicios/inmobiliario"
+        >
+          Ver inmobiliario
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

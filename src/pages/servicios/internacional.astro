@@ -1,0 +1,231 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SchemaService from "../../components/SchemaService.astro";
+
+const highlights = [
+  {
+    t: "Property purchase support",
+    d: "Clear guidance, title review and coordination for a safe purchase process in Uruguay.",
+  },
+  {
+    t: "Powers of attorney (POA)",
+    d: "Practical solutions for signing and representation when you are abroad.",
+  },
+  {
+    t: "Corporate structures for investors",
+    d: "Simple, compliant structures for holding property or operating locally when needed.",
+  },
+  {
+    t: "Fast coordination",
+    d: "Direct communication, checklist upfront, and efficient scheduling for signatures and documentation.",
+  },
+];
+
+const steps = [
+  { t: "Initial assessment", d: "We review your goal and define a clear checklist and timeline." },
+  { t: "Due diligence", d: "We verify records, documentation and key risks before any signature." },
+  { t: "Signing & follow-up", d: "We coordinate signing and provide follow-up on registrations and deliverables." },
+];
+
+const faq = [
+  {
+    q: "Can foreigners buy property in Uruguay?",
+    a: "Yes. Foreigners can purchase real estate in Uruguay. We guide the process, verify documentation and coordinate signing options according to your situation.",
+  },
+  {
+    q: "Can I sign if I'm not in Uruguay?",
+    a: "In many cases, yes—via a power of attorney and proper coordination. We suggest the safest and most practical option for your case.",
+  },
+  {
+    q: "How long does the process take?",
+    a: "It depends on records, documents and coordination with the parties. We provide an estimated timeline after the initial review.",
+  },
+];
+---
+
+<BaseLayout
+  title="Notary in Punta del Este | International clients"
+  description="Notary services for international buyers and investors: property purchase, powers of attorney and corporate structures in Uruguay. Clear guidance and boutique-level service."
+>
+  <SchemaService
+    name="Notary services for international clients in Punta del Este"
+    description="Clear and efficient notary support for foreign buyers and investors: property purchase, powers of attorney and corporate structures in Uruguay."
+    area={["Punta del Este", "Maldonado", "Uruguay"]}
+  />
+
+  <!-- HERO (Premium editorial) -->
+  <section class="relative overflow-hidden bg-[#0B1F3B] text-white border-b border-white/10">
+    <div class="pointer-events-none absolute inset-0">
+      <img
+        src="/images/hero-internacional.jpg"
+        alt="Notary services for international clients in Uruguay"
+        width="1920"
+        height="1080"
+        loading="eager"
+        class="h-full w-full object-cover opacity-45"
+      />
+
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0B1F3B]/55 via-[#0B1F3B]/55 to-[#0B1F3B]/85"></div>
+
+      <div class="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-56 -left-56 h-[520px] w-[520px] rounded-full bg-white/5 blur-3xl"></div>
+    </div>
+
+    <div class="container relative py-16 md:py-20">
+      <p class="text-sm uppercase tracking-widest text-white/70">
+        International clients · Punta del Este / Uruguay
+      </p>
+
+      <h1 class="mt-6 text-4xl md:text-6xl font-semibold leading-tight">
+        Notary services with
+        <span class="block text-white/90">clear, direct guidance.</span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-lg text-white/80">
+        Support for international buyers and investors: property purchase, powers of attorney and practical
+        corporate structures—boutique-level service, fast coordination and preventive approach.
+      </p>
+
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a
+          class="rounded-full bg-white text-[#0B1F3B] px-6 py-3 text-sm font-semibold no-underline hover:opacity-95"
+          href="/contacto"
+        >
+          Request a consultation
+        </a>
+        <a
+          class="rounded-full border border-white/25 px-6 py-3 text-sm no-underline hover:bg-white/10"
+          href="/servicios/inmobiliario"
+        >
+          Real estate services
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-3 md:grid-cols-3">
+        {[
+          { t: "Direct attention", d: "You work directly with the notary." },
+          { t: "Preventive approach", d: "We identify risks before signing." },
+          { t: "Efficient coordination", d: "Clear checklist and timeline from day one." },
+        ].map((b) => (
+          <div class="rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur-sm">
+            <div class="font-semibold">{b.t}</div>
+            <div class="mt-1 text-sm text-white/75">{b.d}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="container py-12 md:py-14">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+        How we can help
+      </h2>
+      <p class="mt-3 text-black/70">
+        Practical, boutique-level notary support for international clients investing or operating in Uruguay.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      {highlights.map((c) => (
+        <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-[#0B1F3B]">{c.t}</h3>
+          <p class="mt-2 text-black/70 leading-relaxed">{c.d}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 rounded-2xl border border-black/10 bg-black/5 p-8">
+      <h3 class="text-xl font-semibold text-[#0B1F3B]">What you get with a boutique approach</h3>
+      <ul class="mt-4 grid gap-2 text-black/80 md:grid-cols-2">
+        <li>• Clear communication and step-by-step guidance</li>
+        <li>• A checklist and timeline from the start</li>
+        <li>• Preventive review before signing</li>
+        <li>• Efficient coordination for signatures and documents</li>
+      </ul>
+      <div class="mt-6">
+        <a
+          class="rounded-full bg-[#0B1F3B] px-6 py-3 text-white text-sm font-semibold no-underline hover:opacity-90"
+          href="/contacto"
+        >
+          Request a consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="bg-white border-y border-black/10">
+    <div class="container py-12 md:py-14">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+          Our process
+        </h2>
+        <p class="mt-3 text-black/70">
+          A simple and transparent process designed for international clients.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        {steps.map((s, idx) => (
+          <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+            <div class="text-xs font-semibold text-black/50">STEP {idx + 1}</div>
+            <h3 class="mt-2 text-lg font-semibold text-[#0B1F3B]">{s.t}</h3>
+            <p class="mt-2 text-black/70">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ MINI -->
+  <section class="container py-12 md:py-14">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#0B1F3B]">
+          Frequently asked questions
+        </h2>
+        <p class="mt-3 text-black/70">
+          Short answers to help you understand the process. For specific cases, we recommend a consultation.
+        </p>
+      </div>
+      <a class="text-sm font-semibold text-[#0B1F3B] no-underline hover:underline" href="/preguntas-frecuentes">
+        See all →
+      </a>
+    </div>
+
+    <div class="mt-8 grid gap-4">
+      {faq.map((f) => (
+        <details class="group rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+          <summary class="cursor-pointer list-none font-semibold text-[#0B1F3B] flex items-start justify-between gap-4">
+            <span>{f.q}</span>
+            <span class="text-black/40 group-open:rotate-45 transition-transform select-none">+</span>
+          </summary>
+          <div class="mt-3 text-black/75 leading-relaxed">{f.a}</div>
+        </details>
+      ))}
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-[#0B1F3B] text-white p-8 border border-white/10">
+      <h3 class="text-xl font-semibold">Ready to move forward with clarity?</h3>
+      <p class="mt-2 text-white/80 max-w-2xl">
+        We can schedule a short consultation to understand your goal, review key points and define next steps.
+      </p>
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a
+          class="rounded-full bg-white text-[#0B1F3B] px-6 py-3 text-sm font-semibold no-underline hover:opacity-95"
+          href="/contacto"
+        >
+          Request a consultation
+        </a>
+        <a
+          class="rounded-full border border-white/25 px-6 py-3 text-sm no-underline hover:bg-white/10"
+          href="/servicios/corporativo"
+        >
+          Corporate services
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

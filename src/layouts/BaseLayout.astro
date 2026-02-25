@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import Seo from "../components/Seo.astro";
+import SchemaLocalBusiness from "../components/SchemaLocalBusiness.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+  title = "Escribana Victoria García Casuriaga | Punta del Este",
+  description = "Seguridad jurídica estratégica, con atención directa en operaciones inmobiliarias y corporativas en Punta del Este.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <Seo title={title} description={description} />
+    <SchemaLocalBusiness />
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <Header />
+
+    <!-- sin container para permitir secciones full-bleed -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

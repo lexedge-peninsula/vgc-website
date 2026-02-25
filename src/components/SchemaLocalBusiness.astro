@@ -1,0 +1,72 @@
+---
+/**
+ * Schema Local para SEO Local (Google / Maps).
+ * Completar: dirección, teléfono, geo, horarios, redes.
+ */
+
+const props = Astro.props ?? {};
+
+const {
+  siteUrl = "https://vgc.uy", // ⚠️ reemplazar por dominio final
+  name = "Escribana Victoria García Casuriaga",
+  description = "Escribana boutique especializada en operaciones inmobiliarias y estructuración corporativa en Punta del Este, brindando asesoramiento ágil, personalizado y adaptado a clientes locales e internacionales.",
+  phone = "+598XXXXXXXX", // ⚠️ completar
+  streetAddress = "Dirección (completar)", // ⚠️ completar
+  addressLocality = "Punta del Este",
+  addressRegion = "Maldonado",
+  postalCode = "20XXX", // ⚠️ completar si aplica
+  // Coordenadas (recomendado para Maps SEO)
+  latitude = null, // e.g. -34.96
+  longitude = null, // e.g. -54.95
+  // Horarios (si los definimos)
+  openingHours = [
+    // "Mo-Fr 09:00-18:00"
+  ],
+  sameAs = [
+    // "https://www.instagram.com/...",
+    // "https://www.linkedin.com/in/...",
+    // "https://www.facebook.com/..."
+  ],
+  image = `${siteUrl}/og.jpg`, // ⚠️ asegurate de tener og.jpg en /public
+} = props;
+
+const hasGeo = typeof latitude === "number" && typeof longitude === "number";
+
+const data = {
+  "@context": "https://schema.org",
+  "@type": ["LegalService", "LocalBusiness"],
+  name,
+  description,
+  url: siteUrl,
+  telephone: phone,
+  image,
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Punta del Este" },
+    { "@type": "AdministrativeArea", name: "Maldonado" },
+    { "@type": "Country", name: "Uruguay" }
+  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress,
+    addressLocality,
+    addressRegion,
+    postalCode,
+    addressCountry: "UY"
+  },
+  ...(openingHours?.length ? { openingHours } : {}),
+  ...(sameAs?.length ? { sameAs } : {}),
+  ...(hasGeo
+    ? {
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude,
+          longitude
+        }
+      }
+    : {})
+};
+---
+
+<script type="application/ld+json">
+  {JSON.stringify(data)}
+</script>

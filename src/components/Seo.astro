@@ -1,0 +1,44 @@
+---
+const {
+  title,
+  description,
+  canonical,
+  ogImage = "/og.jpg",
+  noindex = false,
+  lang = "es",
+  locale = "es_UY",
+  author = "Escribana Victoria García Casuriaga",
+  themeColor = "#0B1F3B",
+} = Astro.props;
+
+const url = canonical ?? Astro.url.toString();
+
+// Asegurar OG image absoluta (mejor para WhatsApp/LinkedIn)
+const ogImageUrl = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage, url).toString();
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+{noindex ? <meta name="robots" content="noindex,nofollow" /> : <meta name="robots" content="index,follow" />}
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<meta name="theme-color" content={themeColor} />
+
+<link rel="canonical" href={url} />
+
+<title>{title}</title>
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={locale} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={ogImageUrl} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />

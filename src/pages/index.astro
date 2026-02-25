@@ -1,17 +1,429 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Escribana Victoria García Casuriaga | Punta del Este"
+  description="Escribanía boutique especializada en operaciones inmobiliarias y estructuración corporativa en Punta del Este. Seguridad jurídica estratégica, criterio preventivo y atención directa para clientes locales e internacionales."
+>
+  <!-- HERO (con imagen de oficina + overlay premium) -->
+  <section class="relative overflow-hidden text-white border-b border-white/10">
+    <!-- IMAGEN DE FONDO -->
+    <div class="absolute inset-0">
+      <!-- Guardar la imagen en: /public/hero/oficina.jpg  (o .png) -->
+      <img
+        src="/hero/oficina.jpg"
+        alt="Oficina — Victoria García Casuriaga"
+        class="h-full w-full object-cover object-center"
+        loading="eager"
+        decoding="async"
+      />
+      <!-- Overlay azul (marca) -->
+      <div class="absolute inset-0 bg-[#0B1F3B]/80"></div>
+      <!-- Gradiente para lectura perfecta -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/95 via-[#0B1F3B]/75 to-[#0B1F3B]/40"></div>
+
+      <!-- luces sutiles -->
+      <div class="pointer-events-none absolute inset-0 opacity-25">
+        <div class="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-white/10 blur-3xl"></div>
+        <div class="absolute -bottom-48 -left-48 h-[520px] w-[520px] rounded-full bg-white/5 blur-3xl"></div>
+      </div>
+
+      <!-- micro línea dorada ultra sutil -->
+      <div class="pointer-events-none absolute left-0 right-0 top-0 h-[2px] bg-[#C9A24A]/45"></div>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="container relative py-20 md:py-24">
+      <p class="text-xs md:text-sm uppercase tracking-[0.25em] text-white/75">
+        Escribanía boutique · Punta del Este / Maldonado
+      </p>
+
+      <h1 class="mt-6 max-w-4xl text-4xl md:text-6xl font-semibold leading-tight">
+        Seguridad jurídica <span class="block">estratégica para</span>
+        <span class="block text-[#C9A24A]">decisiones patrimoniales relevantes.</span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-lg text-white/85 leading-relaxed">
+        Operaciones inmobiliarias y estructuración corporativa con criterio preventivo,
+        coordinación eficiente y acompañamiento directo en cada etapa del proceso.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 font-medium text-[#0B1F3B] no-underline shadow-sm hover:shadow-md hover:-translate-y-[1px] transition-all focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+        >
+          Agendar reunión
+        </a>
+
+        <a
+          href="#areas"
+          class="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-4 font-medium no-underline hover:bg-white/10 transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+        >
+          Ver áreas de práctica
+        </a>
+      </div>
+
+      <!-- Micro confianza -->
+      <div class="mt-12 grid gap-4 sm:grid-cols-3 text-sm text-white/90">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-sm p-5 hover:bg-white/[0.07] transition">
+          <div class="text-xs uppercase tracking-[0.2em] text-white/70">Servicio</div>
+          <div class="mt-2 font-medium text-white">Atención directa</div>
+          <div class="mt-1 text-white/80">Intervención personal en cada operación.</div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-sm p-5 hover:bg-white/[0.07] transition">
+          <div class="text-xs uppercase tracking-[0.2em] text-white/70">Enfoque</div>
+          <div class="mt-2 font-medium text-white">Criterio preventivo</div>
+          <div class="mt-1 text-white/80">Seguridad jurídica antes, durante y después.</div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-sm p-5 hover:bg-white/[0.07] transition">
+          <div class="text-xs uppercase tracking-[0.2em] text-white/70">Proceso</div>
+          <div class="mt-2 font-medium text-white">Agilidad operativa</div>
+          <div class="mt-1 text-white/80">Coordinación eficiente, sin estructura masiva.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Separador sutil -->
+    <div class="relative h-10 bg-gradient-to-b from-[#0B1F3B] to-white"></div>
+  </section>
+
+  <!-- ESPECIALIZACIÓN -->
+  <section class="py-20" id="areas">
+    <div class="container">
+      <div class="max-w-3xl">
+        <p class="text-sm uppercase tracking-widest text-slate-500">Áreas</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold text-slate-900">
+          Especialización clara y foco estratégico
+        </h2>
+
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          Escribanía boutique enfocada en operaciones inmobiliarias y estructuración societaria,
+          con estándares profesionales adaptados a un mercado dinámico e internacional.
+        </p>
+      </div>
+
+      <!-- Cards -->
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        <a
+          href="/servicios/inmobiliario"
+          class="group block h-full rounded-2xl border border-slate-200 bg-white p-8 no-underline transition hover:border-slate-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+        >
+          <div class="flex h-full flex-col">
+            <div class="flex items-start justify-between gap-6">
+              <h3 class="text-lg font-semibold text-slate-900">Operaciones inmobiliarias</h3>
+              <span class="text-[#0B1F3B] opacity-50 group-hover:opacity-100 transition">→</span>
+            </div>
+
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              Compraventas, promesas, propiedad horizontal, hipotecas y estudio de títulos
+              con enfoque preventivo y estratégico.
+            </p>
+
+            <div class="mt-auto pt-6 flex items-center justify-between">
+              <p class="text-sm font-medium text-[#0B1F3B]">Ver detalle</p>
+              <span class="text-xs text-slate-500">Due diligence · Cierre seguro</span>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="/servicios/corporativo"
+          class="group block h-full rounded-2xl border border-slate-200 bg-white p-8 no-underline transition hover:border-slate-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+        >
+          <div class="flex h-full flex-col">
+            <div class="flex items-start justify-between gap-6">
+              <h3 class="text-lg font-semibold text-slate-900">Estructuración corporativa</h3>
+              <span class="text-[#0B1F3B] opacity-50 group-hover:opacity-100 transition">→</span>
+            </div>
+
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              Constitución de sociedades, reformas, poderes y estructuras para inversión
+              con coordinación eficiente y criterio técnico.
+            </p>
+
+            <div class="mt-auto pt-6 flex items-center justify-between">
+              <p class="text-sm font-medium text-[#0B1F3B]">Ver detalle</p>
+              <span class="text-xs text-slate-500">Estructura · Gobierno · Riesgo</span>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="/servicios/internacional"
+          class="group block h-full rounded-2xl border border-slate-200 bg-white p-8 no-underline transition hover:border-slate-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+        >
+          <div class="flex h-full flex-col">
+            <div class="flex items-start justify-between gap-6">
+              <h3 class="text-lg font-semibold text-slate-900">Inversión extranjera</h3>
+              <span class="text-[#0B1F3B] opacity-50 group-hover:opacity-100 transition">→</span>
+            </div>
+
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              Acompañamiento claro y ordenado para invertir en Uruguay con seguridad jurídica
+              y coordinación documental eficiente.
+            </p>
+
+            <div class="mt-auto pt-6 flex items-center justify-between">
+              <p class="text-sm font-medium text-[#0B1F3B]">Ver detalle</p>
+              <span class="text-xs text-slate-500">Remoto · Procesos · Confianza</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- TRABAJAMOS CON -->
+      <div class="mt-10 rounded-3xl border border-slate-200 bg-white p-10">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+          <div class="lg:col-span-4">
+            <p class="text-sm uppercase tracking-widest text-slate-500">Trabajamos con</p>
+
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">
+              Perfiles habituales y operaciones recurrentes
+            </h3>
+
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              Acompañamos decisiones patrimoniales y empresariales con atención directa, criterio preventivo
+              y coordinación eficiente entre partes y asesores.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3">
+              <a
+                href="/contacto"
+                class="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-medium text-slate-900 no-underline hover:bg-slate-50 transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+              >
+                Consultar disponibilidad
+              </a>
+
+              <p class="text-xs text-slate-500">
+                Respuesta ágil · Procesos claros · Atención a clientes internacionales
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="mb-4 flex items-center justify-between">
+              <p class="text-sm font-medium text-slate-900">Perfiles</p>
+              <p class="text-xs text-slate-500">Punta del Este · Maldonado</p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2 auto-rows-fr">
+              <div class="h-full rounded-2xl border border-slate-200 bg-white p-5">
+                <div class="text-xs uppercase tracking-[0.2em] text-slate-500">Perfil</div>
+                <div class="mt-2 text-sm font-semibold text-slate-900">Inversores inmobiliarios</div>
+                <div class="mt-1 text-sm text-slate-600">Compra, venta, oportunidades y due diligence.</div>
+              </div>
+
+              <div class="h-full rounded-2xl border border-slate-200 bg-white p-5">
+                <div class="text-xs uppercase tracking-[0.2em] text-slate-500">Perfil</div>
+                <div class="mt-2 text-sm font-semibold text-slate-900">Compradores premium</div>
+                <div class="mt-1 text-sm text-slate-600">Operaciones residenciales y patrimoniales.</div>
+              </div>
+
+              <div class="h-full rounded-2xl border border-slate-200 bg-white p-5">
+                <div class="text-xs uppercase tracking-[0.2em] text-slate-500">Perfil</div>
+                <div class="mt-2 text-sm font-semibold text-slate-900">Desarrolladores</div>
+                <div class="mt-1 text-sm text-slate-600">Estructura, documentación y cierres ordenados.</div>
+              </div>
+
+              <div class="h-full rounded-2xl border border-slate-200 bg-white p-5">
+                <div class="text-xs uppercase tracking-[0.2em] text-slate-500">Perfil</div>
+                <div class="mt-2 text-sm font-semibold text-slate-900">Empresarios locales</div>
+                <div class="mt-1 text-sm text-slate-600">Sociedades, poderes, reformas y reorganizaciones.</div>
+              </div>
+
+              <div class="h-full rounded-2xl border border-slate-200 bg-white p-5 sm:col-span-2">
+                <div class="text-xs uppercase tracking-[0.2em] text-slate-500">Perfil</div>
+                <div class="mt-2 text-sm font-semibold text-slate-900">Clientes internacionales</div>
+                <div class="mt-1 text-sm text-slate-600">
+                  Coordinación remota, procesos claros y acompañamiento eficiente para invertir en Uruguay.
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-600">
+                Atención directa
+              </span>
+              <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-600">
+                Criterio preventivo
+              </span>
+              <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-600">
+                Coordinación eficiente
+              </span>
+              <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-600">
+                Estándares internacionales
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /TRABAJAMOS CON -->
+    </div>
+  </section>
+
+  <!-- DIFERENCIAL -->
+  <section class="bg-slate-50 py-20">
+    <div class="container">
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p class="text-sm uppercase tracking-widest text-slate-500">Diferencial</p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-semibold text-slate-900">
+            Modelo boutique, sin estructura masiva.
+          </h2>
+
+          <p class="mt-6 text-slate-600 leading-relaxed">
+            Cada operación se acompaña de manera directa y personalizada.
+            El objetivo no es únicamente formalizar actos jurídicos, sino brindar seguridad real
+            en decisiones patrimoniales y empresariales, con un proceso ordenado y claro.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 text-slate-700">
+            <div class="flex gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-[#C9A24A]"></span>
+              <span>Intervención personal y seguimiento continuo</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-[#C9A24A]"></span>
+              <span>Coordinación eficiente entre partes y asesores</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-[#C9A24A]"></span>
+              <span>Comunicación clara, sin tecnicismos innecesarios</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-[#C9A24A]"></span>
+              <span>Estándares alineados a prácticas internacionales</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-slate-100 bg-white p-10 shadow-sm">
+          <h3 class="text-xl font-semibold text-slate-900">Mensaje central</h3>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            Seguridad jurídica en operaciones inmobiliarias y corporativas en Punta del Este,
+            combinando rigor profesional, criterio preventivo y acompañamiento directo para clientes
+            locales e internacionales.
+          </p>
+
+          <div class="mt-8 rounded-2xl bg-slate-50 p-6 border border-slate-200">
+            <div class="h-[2px] w-10 bg-[#C9A24A]"></div>
+            <p class="mt-4 text-sm uppercase tracking-widest text-slate-500">Claim institucional</p>
+            <p class="mt-2 text-lg font-semibold text-[#0B1F3B]">
+              Seguridad jurídica estratégica, con atención directa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTORIDAD + MÉTODO -->
+  <section class="py-20">
+    <div class="container">
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="text-sm uppercase tracking-widest text-slate-500">Enfoque</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold text-slate-900">
+          Rigor profesional con visión contemporánea
+        </h2>
+
+        <p class="mt-6 text-slate-600 leading-relaxed">
+          Operaciones residenciales, comerciales y desarrollos de pequeña y mediana escala.
+          Confianza basada en método: análisis, prevención de riesgos, coordinación y formalización segura.
+        </p>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-4 text-left">
+          <div class="rounded-2xl border border-slate-200 bg-white p-6">
+            <div class="text-3xl font-semibold text-slate-200">01</div>
+            <div class="mt-3 font-semibold text-slate-900">Análisis preliminar</div>
+            <div class="mt-2 text-slate-600 text-sm">
+              Revisión de antecedentes y documentación relevante.
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-white p-6">
+            <div class="text-3xl font-semibold text-slate-200">02</div>
+            <div class="mt-3 font-semibold text-slate-900">Evaluación jurídica</div>
+            <div class="mt-2 text-slate-600 text-sm">
+              Identificación de riesgos y estructura recomendada.
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-white p-6">
+            <div class="text-3xl font-semibold text-slate-200">03</div>
+            <div class="mt-3 font-semibold text-slate-900">Coordinación</div>
+            <div class="mt-2 text-slate-600 text-sm">
+              Seguimiento con partes, bancos y asesores.
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-white p-6">
+            <div class="text-3xl font-semibold text-slate-200">04</div>
+            <div class="mt-3 font-semibold text-slate-900">Formalización segura</div>
+            <div class="mt-2 text-slate-600 text-sm">
+              Cierre ordenado, claro y sin contingencias.
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="/sobre-mi"
+            class="rounded-full border border-slate-300 px-8 py-4 font-medium no-underline hover:bg-slate-100 transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+          >
+            Conocer perfil
+          </a>
+
+          <a
+            href="/contacto"
+            class="rounded-full bg-[#0B1F3B] px-8 py-4 font-medium text-white no-underline hover:opacity-90 transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+          >
+            Consultar disponibilidad
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#0B1F3B] text-white py-20 text-center border-t border-white/10">
+    <div class="container max-w-2xl">
+      <p class="text-sm uppercase tracking-widest text-white/70">Contacto</p>
+
+      <h2 class="mt-3 text-3xl md:text-4xl font-semibold">
+        Agendar reunión
+      </h2>
+
+      <p class="mt-6 text-white/80">
+        Analicemos su operación con claridad, método y criterio preventivo.
+      </p>
+
+      <p class="mt-4 text-sm text-white/70">
+        Respuesta ágil · Coordinación remota · Atención a clientes internacionales
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 font-medium text-[#0B1F3B] no-underline shadow-sm hover:shadow-md hover:-translate-y-[1px] transition-all focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+        >
+          Agendar reunión
+        </a>
+
+        <a
+          href="#areas"
+          class="inline-flex items-center justify-center rounded-full border border-white/35 px-10 py-4 font-medium no-underline hover:bg-white/10 transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A24A]/25"
+        >
+          Ver áreas de práctica
+        </a>
+      </div>
+
+      <p class="mt-8 text-xs text-white/60">
+        Punta del Este · Maldonado · Atención a clientes internacionales
+      </p>
+    </div>
+  </section>
+</BaseLayout>

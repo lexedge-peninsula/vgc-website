@@ -1,0 +1,30 @@
+---
+/**
+ * Schema Service (por página de servicio).
+ * Se usa dentro de cada landing para declarar el servicio a Google.
+ */
+const {
+  siteUrl = "https://vgc.uy", // actualizá al dominio final
+  providerName = "Escribana Victoria García Casuriaga",
+  name,
+  description,
+  area = ["Punta del Este", "Maldonado", "Uruguay"],
+} = Astro.props;
+
+const data = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name,
+  description,
+  provider: {
+    "@type": "LegalService",
+    name: providerName,
+    url: siteUrl,
+  },
+  areaServed: area.map((n) => ({ "@type": "AdministrativeArea", name: n })),
+};
+---
+
+<script type="application/ld+json">
+  {JSON.stringify(data)}
+</script>
