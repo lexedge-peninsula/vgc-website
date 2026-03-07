@@ -4,17 +4,19 @@ const { faqs = [] } = Astro.props;
 const data = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: f.a,
-    },
-  })),
+  mainEntity: (faqs ?? [])
+    .filter((f) => f?.q && f?.a)
+    .map((f) => ({
+      "@type": "Question",
+      name: String(f.q),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: String(f.a),
+      },
+    })),
 };
 ---
 
-{faqs?.length ? (
-  <script type="application/ld+json">{JSON.stringify(data)}</script>
+{data.mainEntity.length ? (
+  <script type="application/ld+json" set:html={JSON.stringify(data)} />
 ) : null}
