@@ -9,6 +9,10 @@ const {
   locale = "es_UY",
   author = "Escribana Victoria García Casuriaga",
   themeColor = "#0B1F3B",
+
+  // NUEVO: hreflang alternates
+  // Ej: [{ hrefLang: "en", href: "https://vgc.uy/servicios/internacional" }]
+  alternates = [],
 } = Astro.props;
 
 const url = canonical ?? Astro.url.toString();
@@ -35,6 +39,13 @@ const ogImageUrl = ogImage.startsWith("http")
 <meta name="msapplication-config" content="/browserconfig.xml" />
 
 <link rel="canonical" href={url} />
+
+<!-- hreflang -->
+<link rel="alternate" hrefLang={lang} href={url} />
+{alternates?.map((a) => (
+  <link rel="alternate" hrefLang={a.hrefLang} href={a.href} />
+))}
+<link rel="alternate" hrefLang="x-default" href="https://vgc.uy/" />
 
 <!-- Favicons / PWA -->
 <link rel="icon" href="/favicon.ico" sizes="any" />
