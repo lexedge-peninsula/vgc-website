@@ -31,8 +31,10 @@ const faqs = [
 ---
 
 <BaseLayout
-  title="Preguntas frecuentes | Escribana en Punta del Este"
+  title="Preguntas frecuentes | Escribanía en Punta del Este"
   description="Respuestas claras sobre compraventas, sociedades, poderes y operaciones para clientes locales e internacionales en Punta del Este y Maldonado."
+  canonical="https://vgc.uy/preguntas-frecuentes"
+  ogImage="/og.jpg"
 >
   <!-- Schema FAQ (solo en esta página) -->
   <SchemaFAQ faqs={faqs} />
@@ -42,12 +44,18 @@ const faqs = [
       <p class="text-sm uppercase tracking-widest text-white/70">
         Información clara · Punta del Este / Maldonado
       </p>
+
       <h1 class="mt-6 text-4xl md:text-5xl font-semibold leading-tight">
         Preguntas frecuentes
       </h1>
+
       <p class="mt-4 max-w-2xl text-white/80">
         Respuestas breves y prácticas para tomar decisiones con seguridad jurídica.
         Si tu caso requiere análisis, coordinamos una consulta.
+      </p>
+
+      <p class="mt-4 text-sm text-white/70">
+        Temas habituales: compraventas, estudio de títulos, poderes, estructuras societarias.
       </p>
 
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -85,9 +93,7 @@ const faqs = [
             <span>{f.q}</span>
             <span class="text-black/40 group-open:rotate-45 transition-transform select-none">+</span>
           </summary>
-          <div class="mt-3 text-black/75 leading-relaxed">
-            {f.a}
-          </div>
+          <div class="mt-3 text-black/75 leading-relaxed">{f.a}</div>
         </details>
       ))}
     </div>

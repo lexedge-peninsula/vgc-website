@@ -1,7 +1,7 @@
 ---
 /**
  * Schema Local para SEO Local (Google / Maps).
- * Tip: completá phone y dirección real. Si tenés coordenadas (lat/lng), mejor.
+ * Tip: si conseguís coordenadas (lat/lng), sumalas: mejora SEO local.
  */
 
 const props = Astro.props ?? {};
@@ -12,36 +12,33 @@ const {
   description =
     "Escribana boutique especializada en operaciones inmobiliarias y estructuración corporativa en Punta del Este, con asesoramiento ágil, personalizado y adaptado a clientes locales e internacionales.",
 
-  // Contacto (ideal: completarlos)
-  phone = "+598XXXXXXXX",
-  email = null,
+  // ✅ Contacto real (E.164)
+  phone = "+59892217153",
+  email = "victoria@vgc.uy",
 
-  // Dirección (ideal: completarla)
-  streetAddress = "Dirección (completar)",
+  // ✅ Dirección real
+  streetAddress = "El Mesana, local 2 (PB), Edificio Linton Village",
   addressLocality = "Punta del Este",
   addressRegion = "Maldonado",
-  postalCode = "20XXX",
+  postalCode = "20100",
   addressCountry = "UY",
 
-  // Coordenadas (recomendado)
-  latitude = null, // e.g. -34.96
-  longitude = null, // e.g. -54.95
+  // Coordenadas (opcional, recomendado)
+  latitude = null, // ej: -34.96
+  longitude = null, // ej: -54.95
 
-  // Horarios (formato simple)
+  // Horarios (si los querés activar)
   openingHours = [
     // "Mo-Fr 09:00-18:00"
   ],
 
-  // Redes (si aplica)
+  // ✅ Redes (si aplica)
   sameAs = [
-    // "https://www.linkedin.com/in/...",
-    // "https://www.instagram.com/..."
+    "https://www.linkedin.com/in/vgcescribania/",
   ],
 
-  // Imagen
+  // Imagen / logo
   image = `${siteUrl}/og.jpg`,
-
-  // Logo (si querés, podés usar el lockup o el favicon grande)
   logo = `${siteUrl}/logo-lockup-color.png`,
 } = props;
 
@@ -59,9 +56,6 @@ const address = {
 
 const data = {
   "@context": "https://schema.org",
-
-  // Más específico para escribanía:
-  // Notary existe en schema.org y suele ser más preciso que LegalService.
   "@type": ["Notary", "LegalService", "LocalBusiness"],
 
   name,
@@ -69,13 +63,12 @@ const data = {
   url: siteUrl,
   image,
   logo,
-  telephone: phone,
 
+  telephone: phone,
   ...(email ? { email } : {}),
 
   address,
 
-  // Cobertura geográfica
   areaServed: [
     { "@type": "AdministrativeArea", name: "Punta del Este" },
     { "@type": "AdministrativeArea", name: "Maldonado" },
@@ -96,6 +89,4 @@ const data = {
     : {}),
 };
 ---
-
-<!-- IMPORTANTE: set:html evita que se imprima como texto literal -->
 <script type="application/ld+json" set:html={JSON.stringify(data)} />
