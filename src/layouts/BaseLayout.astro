@@ -8,13 +8,32 @@ import Footer from "../components/Footer.astro";
 const {
   title = "Escribana Victoria García Casuriaga | Punta del Este",
   description = "Seguridad jurídica estratégica, con atención directa en operaciones inmobiliarias y corporativas en Punta del Este.",
+
+  // SEO (opcionales)
+  canonical,
+  ogImage = "/og.jpg",
+  noindex = false,
+  lang = "es",
+  locale = "es_UY",
+  themeColor = "#0B1F3B",
 } = Astro.props;
+
+const canonicalUrl = canonical ?? Astro.url.toString();
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang} class="scroll-smooth">
   <head>
-    <Seo title={title} description={description} />
+    <Seo
+      title={title}
+      description={description}
+      canonical={canonicalUrl}
+      ogImage={ogImage}
+      noindex={noindex}
+      lang={lang}
+      locale={locale}
+      themeColor={themeColor}
+    />
     <SchemaLocalBusiness />
   </head>
 
