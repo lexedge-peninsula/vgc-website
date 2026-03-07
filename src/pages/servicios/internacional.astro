@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SchemaService from "../../components/SchemaService.astro";
+import SchemaFAQ from "../../components/SchemaFAQ.astro";
 
 const highlights = [
   {
@@ -46,10 +47,16 @@ const faq = [
 <BaseLayout
   title="Notary in Punta del Este | International clients"
   description="Notary services for international buyers and investors: property purchase, powers of attorney and corporate structures in Uruguay. Clear guidance and boutique-level service."
+  lang="en"
+  locale="en_US"
+  canonical="https://vgc.uy/servicios/internacional"
+  ogImage="/og.jpg"
 >
   <SchemaService
     name="Notary services for international clients in Punta del Este"
     description="Clear and efficient notary support for foreign buyers and investors: property purchase, powers of attorney and corporate structures in Uruguay."
+    url="https://vgc.uy/servicios/internacional"
+    serviceType="Notary services"
     area={["Punta del Este", "Maldonado", "Uruguay"]}
   />
 
@@ -62,6 +69,8 @@ const faq = [
         width="1920"
         height="1080"
         loading="eager"
+        decoding="async"
+        fetchpriority="high"
         class="h-full w-full object-cover opacity-45"
       />
 
@@ -228,4 +237,7 @@ const faq = [
       </div>
     </div>
   </section>
+
+  <!-- JSON-LD FAQ para esta landing (3 preguntas) -->
+  <SchemaFAQ faqs={faq} />
 </BaseLayout>
