@@ -1,0 +1,25 @@
+# Canonical: SIN slash final
+/contacto/                    /contacto                    301
+/gracias/                     /gracias                     301
+/sobre-mi/                    /sobre-mi                    301
+/preguntas-frecuentes/        /preguntas-frecuentes        301
+/servicios/inmobiliario/      /servicios/inmobiliario      301
+/servicios/corporativo/       /servicios/corporativo       301
+/servicios/internacional/     /servicios/internacional     301
+
+# Aliases / typos → canónicas
+/servicios/inmobiliaria           /servicios/inmobiliario      301
+/servicios/corporativos           /servicios/corporativo       301
+/servicios/inversion-extranjera   /servicios/internacional     301
+
+/faq                              /preguntas-frecuentes        301
+/preguntas                        /preguntas-frecuentes        301
+
+/about                            /sobre-mi                    301
+/contact                          /contacto                    301
+
+# Atajos
+/servicios                        /#servicios                  301
+/servicios/                       /#servicios                  301
+
+/index.html                       /                           301

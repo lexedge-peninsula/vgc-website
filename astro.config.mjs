@@ -5,8 +5,15 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   output: "static",
+  site: "https://vgc.uy",
+
+  // CLAVE: genera .html en vez de /index.html
+  build: {
+    format: "file",
+  },
+
   trailingSlash: "never",
-  site: "https://vgc.uy", // <-- cambiá al dominio final cuando esté
+
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
