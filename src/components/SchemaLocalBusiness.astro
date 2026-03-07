@@ -1,72 +1,101 @@
 ---
 /**
  * Schema Local para SEO Local (Google / Maps).
- * Completar: dirección, teléfono, geo, horarios, redes.
+ * Tip: completá phone y dirección real. Si tenés coordenadas (lat/lng), mejor.
  */
 
 const props = Astro.props ?? {};
 
 const {
-  siteUrl = "https://vgc.uy", // ⚠️ reemplazar por dominio final
+  siteUrl = "https://vgc.uy",
   name = "Escribana Victoria García Casuriaga",
-  description = "Escribana boutique especializada en operaciones inmobiliarias y estructuración corporativa en Punta del Este, brindando asesoramiento ágil, personalizado y adaptado a clientes locales e internacionales.",
-  phone = "+598XXXXXXXX", // ⚠️ completar
-  streetAddress = "Dirección (completar)", // ⚠️ completar
+  description =
+    "Escribana boutique especializada en operaciones inmobiliarias y estructuración corporativa en Punta del Este, con asesoramiento ágil, personalizado y adaptado a clientes locales e internacionales.",
+
+  // Contacto (ideal: completarlos)
+  phone = "+598XXXXXXXX",
+  email = null,
+
+  // Dirección (ideal: completarla)
+  streetAddress = "Dirección (completar)",
   addressLocality = "Punta del Este",
   addressRegion = "Maldonado",
-  postalCode = "20XXX", // ⚠️ completar si aplica
-  // Coordenadas (recomendado para Maps SEO)
+  postalCode = "20XXX",
+  addressCountry = "UY",
+
+  // Coordenadas (recomendado)
   latitude = null, // e.g. -34.96
   longitude = null, // e.g. -54.95
-  // Horarios (si los definimos)
+
+  // Horarios (formato simple)
   openingHours = [
     // "Mo-Fr 09:00-18:00"
   ],
+
+  // Redes (si aplica)
   sameAs = [
-    // "https://www.instagram.com/...",
     // "https://www.linkedin.com/in/...",
-    // "https://www.facebook.com/..."
+    // "https://www.instagram.com/..."
   ],
-  image = `${siteUrl}/og.jpg`, // ⚠️ asegurate de tener og.jpg en /public
+
+  // Imagen
+  image = `${siteUrl}/og.jpg`,
+
+  // Logo (si querés, podés usar el lockup o el favicon grande)
+  logo = `${siteUrl}/logo-lockup-color.png`,
 } = props;
 
 const hasGeo = typeof latitude === "number" && typeof longitude === "number";
 
+// NAP consistente
+const address = {
+  "@type": "PostalAddress",
+  streetAddress,
+  addressLocality,
+  addressRegion,
+  postalCode,
+  addressCountry,
+};
+
 const data = {
   "@context": "https://schema.org",
-  "@type": ["LegalService", "LocalBusiness"],
+
+  // Más específico para escribanía:
+  // Notary existe en schema.org y suele ser más preciso que LegalService.
+  "@type": ["Notary", "LegalService", "LocalBusiness"],
+
   name,
   description,
   url: siteUrl,
-  telephone: phone,
   image,
+  logo,
+  telephone: phone,
+
+  ...(email ? { email } : {}),
+
+  address,
+
+  // Cobertura geográfica
   areaServed: [
     { "@type": "AdministrativeArea", name: "Punta del Este" },
     { "@type": "AdministrativeArea", name: "Maldonado" },
-    { "@type": "Country", name: "Uruguay" }
+    { "@type": "Country", name: "Uruguay" },
   ],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress,
-    addressLocality,
-    addressRegion,
-    postalCode,
-    addressCountry: "UY"
-  },
+
   ...(openingHours?.length ? { openingHours } : {}),
   ...(sameAs?.length ? { sameAs } : {}),
+
   ...(hasGeo
     ? {
         geo: {
           "@type": "GeoCoordinates",
           latitude,
-          longitude
-        }
+          longitude,
+        },
       }
-    : {})
+    : {}),
 };
 ---
 
-<script type="application/ld+json">
-  {JSON.stringify(data)}
-</script>
+<!-- IMPORTANTE: set:html evita que se imprima como texto literal -->
+<script type="application/ld+json" set:html={JSON.stringify(data)} />
