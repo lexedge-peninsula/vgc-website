@@ -14,7 +14,13 @@ export default defineConfig({
 
   trailingSlash: "never",
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Excluir la página de "Gracias" del sitemap
+      filter: (page) => !/\/gracias(?:\/|$)/.test(page),
+    }),
+  ],
+
   vite: {
     plugins: [tailwindcss()],
   },
