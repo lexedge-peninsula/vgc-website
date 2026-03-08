@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Gracias | Consulta enviada"
+  description="Su consulta fue enviada con éxito. En breve nos comunicaremos para coordinar el siguiente paso."
+  canonical="https://vgc.uy/gracias"
+  noindex={true}
+>
+  <section class="bg-[#0B1F3B] text-white border-b border-white/10">
+    <div class="container py-16 md:py-20 text-center">
+      <p class="text-sm uppercase tracking-widest text-white/70">Consulta enviada</p>
+
+      <h1 class="mt-4 text-3xl md:text-5xl font-semibold">¡Gracias!</h1>
+
+      <p class="mt-4 max-w-2xl mx-auto text-white/80">
+        Su mensaje fue enviado con éxito. En breve nos comunicaremos para coordinar el siguiente paso.
+      </p>
+
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row justify-center">
+        <a
+          href="/"
+          class="rounded-full bg-white text-[#0B1F3B] px-6 py-3 text-sm font-semibold no-underline hover:opacity-95"
+        >
+          Ir al inicio
+        </a>
+
+        <a
+          href="/contacto"
+          class="rounded-full border border-white/25 px-6 py-3 text-sm no-underline hover:bg-white/10"
+        >
+          Volver a contacto
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
