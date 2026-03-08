@@ -3,24 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const WHATSAPP_NUMBER_INTL = "59892217153";
 const PHONE_DISPLAY = "+598 92 217 153";
-const EMAIL = "info@vgc.uy"; // si no tenés email aún, dejalo así temporal o cambialo
+const EMAIL = "victoria@vgc.uy";
 const ADDRESS_LINE = "El Mesana local 2 en PB, Edificio Linton Village — Punta del Este";
 const POSTAL_CODE = "20100";
 const LINKEDIN_URL = "https://www.linkedin.com/in/vgcescribania/";
-
 const HOURS = "Lunes a Viernes · 09:00–18:00";
 
-// Form (si aún no lo configuraste, dejalo y después lo cambiamos)
+// ⚠️ Reemplazá por tu endpoint real de Formspree
 const FORM_ACTION = "https://formspree.io/f/XXXXXXX";
 
-// Mapa embed (pro y elegante): pegá el iframe URL de Google Maps cuando lo tengas.
-// Mientras tanto dejo un placeholder “realista” vacío para que no rompa.
+// Mapa embed
 const MAP_EMBED_URL =
   "https://www.google.com/maps?q=Edificio%20Linton%20Village%20Punta%20del%20Este&output=embed";
 
 const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER_INTL}?text=${encodeURIComponent(
   "Hola, quiero coordinar una consulta. Mi consulta es:"
 )}`;
+
 const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
   "Consulta - Escribanía Victoria García Casuriaga"
 )}`;
@@ -29,6 +28,8 @@ const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
 <BaseLayout
   title="Contacto | Escribana en Punta del Este"
   description="Coordiná una consulta con la Escribana Victoria García Casuriaga. Atención directa, criterio preventivo y coordinación ágil en Punta del Este y Maldonado."
+  canonical="https://vgc.uy/contacto"
+  ogImage="/og.jpg"
 >
   <!-- HERO -->
   <section class="relative overflow-hidden bg-[#0B1F3B] text-white border-b border-white/10">
@@ -110,7 +111,10 @@ const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
 
           <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
             <div class="text-xs font-semibold text-black/50">EMAIL</div>
-            <a class="mt-2 inline-block text-lg font-semibold text-[#0B1F3B] no-underline hover:underline" href={mailtoLink}>
+            <a
+              class="mt-2 inline-block text-lg font-semibold text-[#0B1F3B] no-underline hover:underline"
+              href={mailtoLink}
+            >
               {EMAIL}
             </a>
             <p class="mt-2 text-black/70 text-sm">
@@ -137,7 +141,7 @@ const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
           </div>
         </div>
 
-        <!-- MAPA (pro y elegante) -->
+        <!-- MAPA -->
         <div class="mt-8 rounded-2xl overflow-hidden border border-black/10 bg-white shadow-sm">
           <div class="flex items-center justify-between border-b border-black/10 px-6 py-4">
             <div>
@@ -175,7 +179,18 @@ const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
             Respuesta breve y clara. Si tu caso requiere análisis documental, te indicamos próximos pasos.
           </p>
 
-          <form class="mt-8 grid gap-4" method="post" action={FORM_ACTION}>
+          <form
+            id="contact-form"
+            class="mt-8 grid gap-4"
+            method="post"
+            action={FORM_ACTION}
+          >
+            <!-- Honeypot anti-bots -->
+            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+            <!-- Redirect sin JS (si tu configuración de Formspree lo respeta) -->
+            <input type="hidden" name="_next" value="https://vgc.uy/gracias" />
+
             <div class="grid gap-4 md:grid-cols-2">
               <label class="grid gap-2">
                 <span class="text-sm font-semibold text-black/70">Nombre</span>
@@ -239,7 +254,7 @@ const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
 
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <button
-                class="rounded-full bg-[#0B1F3B] px-6 py-3 text-white text-sm font-semibold hover:opacity-90"
+                class="rounded-full bg-[#0B1F3B] px-6 py-3 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-60"
                 type="submit"
               >
                 Enviar consulta
@@ -249,6 +264,8 @@ const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
                 Al enviar, aceptás ser contactado para coordinar la consulta.
               </p>
             </div>
+
+            <p id="contact-status" class="text-sm text-black/70"></p>
           </form>
         </div>
 
@@ -271,4 +288,42 @@ const mailtoLink = `mailto:${EMAIL}?subject=${encodeURIComponent(
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const form = document.getElementById("contact-form");
+      const status = document.getElementById("contact-status");
+      if (!form || !status) return;
+
+      const btn = form.querySelector('button[type="submit"]');
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        status.textContent = "";
+        if (btn) btn.disabled = true;
+
+        try {
+          const formData = new FormData(form);
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: { Accept: "application/json" },
+          });
+
+          if (res.ok) {
+            window.location.href = "/gracias";
+            return;
+          }
+
+          status.textContent =
+            "No se pudo enviar. Revisá los datos o intentá nuevamente en unos minutos.";
+        } catch (err) {
+          status.textContent =
+            "Error de conexión. Intentá nuevamente o escribinos por WhatsApp.";
+        } finally {
+          if (btn) btn.disabled = false;
+        }
+      });
+    })();
+  </script>
 </BaseLayout>
